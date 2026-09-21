@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 922 260" role="img" aria-label="Typewriter text for ~/proyectos">
+      <defs>
+        <linearGradient id="tt-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#04120a" />
+          <stop offset="100%" stop-color="#020805" />
+        </linearGradient>
+        <pattern id="tt-scan" width="1" height="4" patternUnits="userSpaceOnUse">
+          <rect width="1" height="4" fill="transparent" />
+          <rect width="1" height="1" y="0" fill="#4ade80" opacity="0.05" />
+        </pattern>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap');
+          @keyframes tt-show { from { opacity: 0; } to { opacity: 1; } }
+          .tt-l { opacity: 0; animation: tt-show 0.05s linear forwards; }
+          @keyframes tt-advance { from { transform: translateX(0); } to { transform: translateX(682.0px); } }
+          @keyframes tt-blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+          .tt-caret { animation: tt-advance 1.21s steps(11) forwards, tt-blink 1.06s step-end infinite; }
+        </style>
+      </defs>
+      
+      <text class="tt-l" style="animation-delay:0.000s" x="151" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">~</text><text class="tt-l" style="animation-delay:0.110s" x="213" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">/</text><text class="tt-l" style="animation-delay:0.220s" x="275" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">p</text><text class="tt-l" style="animation-delay:0.330s" x="337" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">r</text><text class="tt-l" style="animation-delay:0.440s" x="399" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">o</text><text class="tt-l" style="animation-delay:0.550s" x="461" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">y</text><text class="tt-l" style="animation-delay:0.660s" x="523" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">e</text><text class="tt-l" style="animation-delay:0.770s" x="585" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">c</text><text class="tt-l" style="animation-delay:0.880s" x="647" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">t</text><text class="tt-l" style="animation-delay:0.990s" x="709" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">o</text><text class="tt-l" style="animation-delay:1.100s" x="771" y="150" text-anchor="middle" font-size="94" font-family="'Space Mono','JetBrains Mono',monospace" font-weight="700" fill="#86efac">s</text>
+      <rect class="tt-caret" x="120.0" y="68" width="14" height="90" rx="1" fill="#4ade80" />
+      
+    </svg>
