@@ -2,7 +2,11 @@
 
 <img src="assets/name.svg" width="100%" alt="Daniel Svetoslavov" />
 
-<p align="center"><strong>Full-stack developer · AI enthusiast · Always building</strong><br /><sub>I build tools for things I need and experiments for things I’m curious about. AI agents, automation and practical applications — from the first idea to running on my own server.</sub></p>
+<p align="center"><strong>Full-stack developer · AI enthusiast · Always building</strong></p>
+
+<img src="assets/h-about.svg" height="22" alt="About me" />
+
+I build tools for things I need and experiments for things I’m curious about. I’m Daniel, a full-stack developer based in Spain with a strong interest in AI, automation and understanding how things work. I use AI throughout my development process and enjoy exploring agents, local models and integrations that solve real problems. From business applications to personal experiments, I like taking ideas all the way from “what if?” to something running on my own server. This GitHub is my personal lab, where curiosity turns into projects and there’s always something new in the works.
 
 <img src="assets/h-projects.svg" height="22" alt="Projects" />
 
@@ -19,4 +23,4 @@
 
 <img src="assets/stack.svg" width="100%" alt="Stack" />
 
-<img src="assets/outro.svg" width="100%" alt="I build what I imagine" />
+<img src="assets/outro.svg" width="100%" alt="Curiosity into code" />
