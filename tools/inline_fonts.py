@@ -42,8 +42,8 @@ def face_css(family_param, chars):
         fonts = {u: fetch(u) for u in re.findall(r"url\((https://[^)]+)\)", css)}
     except urllib.error.HTTPError:
         # Google refuses a subset with characters the font lacks; keep the ones it has.
-        ascii_chars = "".join(c for c in chars if c.isascii()) or "A"
-        css = fetch(base + "&text=" + urllib.parse.quote(ascii_chars)).decode("utf-8")
+        latin_chars = "".join(c for c in chars if ord(c) < 0x250) or "A"
+        css = fetch(base + "&text=" + urllib.parse.quote(latin_chars)).decode("utf-8")
         fonts = {u: fetch(u) for u in re.findall(r"url\((https://[^)]+)\)", css)}
     for url, data in fonts.items():
         css = css.replace(url, "data:font/woff2;base64," + base64.b64encode(data).decode("ascii"))
