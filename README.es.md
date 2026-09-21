@@ -1,7 +1,7 @@
 <p align="right"><a href="README.md" lang="en">English</a> · <strong>Español</strong></p>
 
 <p align="center">
-  <img src="assets/lab-header.es.svg" width="100%" alt="Daniel’s AI Lab — Build. Experiment. Repeat. Un laboratorio pixel art con pantallas animadas." />
+  <img src="assets/daniel-name.es.svg" width="100%" alt="Daniel Svetoslavov" />
 </p>
 
 <p align="center">
@@ -15,16 +15,14 @@ Soy Daniel, desarrollador full stack y entusiasta de la inteligencia artificial.
 
 Este GitHub es mi laboratorio personal. Aquí encontrarás aplicaciones, automatizaciones y experimentos en distintas fases de desarrollo. Siempre hay algo en construcción.
 
-<p>
-  <img src="assets/status.es.svg" width="100%" alt="Explorando agentes, automatización e IA aplicada" />
-</p>
 
 ## Dentro del laboratorio
 
-<p align="center">
-  <a href="https://github.com/Dasge97/codehive-factory"><img src="assets/factory.es.svg" width="49%" alt="Code Hive Factory: agentes que construyen, revisan y corrigen proyectos en equipo. Abrir repositorio." /></a>
-  <a href="https://github.com/Dasge97/pocket-terminal"><img src="assets/terminal.es.svg" width="49%" alt="Pocket Terminal: tu terminal de Windows desde el móvil. Abrir repositorio." /></a>
-</p>
+<p><a href="https://github.com/Dasge97/codehive-factory"><img src="assets/agents-motion.svg" width="48" height="48" align="left" alt="" /></a><strong><a href="https://github.com/Dasge97/codehive-factory">Code Hive Factory ↗</a></strong><br />Agentes que construyen, revisan y corrigen proyectos en equipo.</p>
+
+<br />
+
+<p><a href="https://github.com/Dasge97/pocket-terminal"><img src="assets/terminal-motion.svg" width="48" height="48" align="left" alt="" /></a><strong><a href="https://github.com/Dasge97/pocket-terminal">Pocket Terminal ↗</a></strong><br />Tu terminal de Windows, desde el móvil.</p>
 
 <p align="right">
   <a href="https://github.com/Dasge97?tab=repositories">Explorar todos los repositorios →</a>
@@ -33,16 +31,15 @@ Este GitHub es mi laboratorio personal. Aquí encontrarás aplicaciones, automat
 ## Mi caja de herramientas
 
 <p>
-  <img src="assets/javascript.svg" height="33" alt="JavaScript" />
-  <img src="assets/node.svg" height="33" alt="Node.js" />
-  <img src="assets/php.svg" height="33" alt="PHP" />
-  <img src="assets/symfony.svg" height="33" alt="Symfony" />
-  <img src="assets/python.svg" height="33" alt="Python" />
-  <br />
-  <img src="assets/docker.svg" height="33" alt="Docker" />
-  <img src="assets/linux.svg" height="33" alt="Linux" />
-  <img src="assets/mysql.svg" height="33" alt="MySQL" />
-  <img src="assets/postgres.svg" height="33" alt="PostgreSQL" />
+  <img src="assets/javascript-motion.svg" width="72" height="64" alt="JavaScript" />
+  <img src="assets/node-motion.svg" width="72" height="64" alt="Node.js" />
+  <img src="assets/php-motion.svg" width="72" height="64" alt="PHP" />
+  <img src="assets/symfony-motion.svg" width="72" height="64" alt="Symfony" />
+  <img src="assets/python-motion.svg" width="72" height="64" alt="Python" />
+  <img src="assets/docker-motion.svg" width="72" height="64" alt="Docker" />
+  <img src="assets/linux-motion.svg" width="72" height="64" alt="Linux" />
+  <img src="assets/mysql-motion.svg" width="72" height="64" alt="MySQL" />
+  <img src="assets/postgres-motion.svg" width="72" height="64" alt="PostgreSQL" />
 </p>
 
 <details>

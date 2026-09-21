@@ -1,7 +1,7 @@
 <p align="right"><strong>English</strong> · <a href="README.es.md" lang="es">Español</a></p>
 
 <p align="center">
-  <img src="assets/lab-header.svg" width="100%" alt="Daniel’s AI Lab — Build. Experiment. Repeat. A pixel-art lab with animated screens." />
+  <img src="assets/daniel-name.svg" width="100%" alt="Daniel Svetoslavov" />
 </p>
 
 <p align="center">
@@ -15,16 +15,14 @@ I’m Daniel, a full-stack developer and AI enthusiast. I build tools for things
 
 This GitHub is my personal lab. You’ll find applications, automations and experiments at different stages of development. There’s always something in the works.
 
-<p>
-  <img src="assets/status.svg" width="100%" alt="Exploring agents, automation and applied AI" />
-</p>
 
 ## Inside the lab
 
-<p align="center">
-  <a href="https://github.com/Dasge97/codehive-factory"><img src="assets/factory.svg" width="49%" alt="Code Hive Factory: agents that build, review and fix projects together. Open repository." /></a>
-  <a href="https://github.com/Dasge97/pocket-terminal"><img src="assets/terminal.svg" width="49%" alt="Pocket Terminal: your Windows terminal on your phone. Open repository." /></a>
-</p>
+<p><a href="https://github.com/Dasge97/codehive-factory"><img src="assets/agents-motion.svg" width="48" height="48" align="left" alt="" /></a><strong><a href="https://github.com/Dasge97/codehive-factory">Code Hive Factory ↗</a></strong><br />Agents that build, review and fix projects together.</p>
+
+<br />
+
+<p><a href="https://github.com/Dasge97/pocket-terminal"><img src="assets/terminal-motion.svg" width="48" height="48" align="left" alt="" /></a><strong><a href="https://github.com/Dasge97/pocket-terminal">Pocket Terminal ↗</a></strong><br />Your Windows terminal, on your phone.</p>
 
 <p align="right">
   <a href="https://github.com/Dasge97?tab=repositories">Explore all repositories →</a>
@@ -33,16 +31,15 @@ This GitHub is my personal lab. You’ll find applications, automations and expe
 ## My toolbox
 
 <p>
-  <img src="assets/javascript.svg" height="33" alt="JavaScript" />
-  <img src="assets/node.svg" height="33" alt="Node.js" />
-  <img src="assets/php.svg" height="33" alt="PHP" />
-  <img src="assets/symfony.svg" height="33" alt="Symfony" />
-  <img src="assets/python.svg" height="33" alt="Python" />
-  <br />
-  <img src="assets/docker.svg" height="33" alt="Docker" />
-  <img src="assets/linux.svg" height="33" alt="Linux" />
-  <img src="assets/mysql.svg" height="33" alt="MySQL" />
-  <img src="assets/postgres.svg" height="33" alt="PostgreSQL" />
+  <img src="assets/javascript-motion.svg" width="72" height="64" alt="JavaScript" />
+  <img src="assets/node-motion.svg" width="72" height="64" alt="Node.js" />
+  <img src="assets/php-motion.svg" width="72" height="64" alt="PHP" />
+  <img src="assets/symfony-motion.svg" width="72" height="64" alt="Symfony" />
+  <img src="assets/python-motion.svg" width="72" height="64" alt="Python" />
+  <img src="assets/docker-motion.svg" width="72" height="64" alt="Docker" />
+  <img src="assets/linux-motion.svg" width="72" height="64" alt="Linux" />
+  <img src="assets/mysql-motion.svg" width="72" height="64" alt="MySQL" />
+  <img src="assets/postgres-motion.svg" width="72" height="64" alt="PostgreSQL" />
 </p>
 
 <details>
