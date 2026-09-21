@@ -27,11 +27,10 @@ STACK = [
                                 ("Python", "python"), ("Go", "go"), ("Rust", "rust"), ("Dart", "dart")]),
     ("frameworks", "frameworks", [("Symfony", "symfony"), ("Node.js", "nodedotjs"), ("Express", "express"),
                                   ("Vue", "vuedotjs"), ("Flutter", "flutter")]),
-    ("ai", "ia", [("Claude Code", "claude"), ("Ollama", "ollama"), ("Multi-agent", None),
-                  ("RAG", None), ("Voice agents", None)]),
-    ("data", "datos", [("MySQL", "mysql"), ("PostgreSQL", "postgresql")]),
-    ("infra", "infra", [("Docker", "docker"), ("Linux", "linux"), ("Traefik", "traefikproxy"),
-                        ("n8n", "n8n"), ("Git", "git")]),
+    ("ai", "ia", [("Claude Code", "claude"), ("ChatGPT", None), ("OpenCode", "opencode"), ("Ollama", "ollama"),
+                  ("Multi-agent", None), ("RAG", None), ("Voice agents", None)]),
+    ("data & infra", "datos e infra", [("MySQL", "mysql"), ("PostgreSQL", "postgresql"), ("Docker", "docker"),
+                                       ("Linux", "linux"), ("Traefik", "traefikproxy"), ("n8n", "n8n"), ("Git", "git")]),
     ("integrations", "integraciones", [("Odoo", "odoo"), ("Stripe", "stripe"),
                                        ("Telegram", "telegram"), ("WhatsApp", "whatsapp")]),
 ]
@@ -40,20 +39,20 @@ STACK = [
 LANG_COLORS = {"TypeScript": "#3178c6", "JavaScript": "#f1e05a", "PHP": "#4F5D95",
                "Python": "#3572A5", "Go": "#00ADD8"}
 
-# (repo, language, English description lines, Spanish description lines)
+# (repo, language, public, English line, Spanish line). Private repos get no link.
 PROJECTS = [
-    ("codehive-factory", "TypeScript", ["Coding agents that build, review", "and fix projects together."],
-     ["Agentes que construyen, revisan", "y corrigen proyectos en equipo."]),
-    ("pocket-terminal", "JavaScript", ["Mobile web terminal to control my PC", "and run Claude Code from my phone."],
-     ["Terminal web para el móvil: controlo", "mi PC y uso Claude Code desde fuera."]),
-    ("odrys-cli", "Go", ["AI-assisted dev client for the", "terminal that orchestrates agents."],
-     ["Cliente de desarrollo con IA para la", "terminal que orquesta agentes."]),
-    ("auto-order", "PHP", ["Voice agents that take phone orders", "and log them in your system."],
-     ["Agentes de voz que recogen pedidos por", "teléfono y los apuntan en tu sistema."]),
-    ("pdf2audio", "Python", ["PDF to audiobook, 100% local and free,", "with optional EN-ES translation."],
-     ["PDF a audiolibro, 100% local y gratis,", "con traducción EN-ES opcional."]),
-    ("claude-monitoring-rainmeter", "JavaScript", ["Desktop panel with the status of", "every Claude Code session."],
-     ["Panel de escritorio con el estado de", "cada sesión de Claude Code."]),
+    ("codehive-factory", "TypeScript", True, "Agents that build and fix projects",
+     "Agentes que construyen y corrigen código"),
+    ("pocket-terminal", "JavaScript", True, "My PC's terminal, on my phone",
+     "La terminal de mi PC, en el móvil"),
+    ("podcaster", "PHP", False, "Automated vertical video studio",
+     "Estudio automático de vídeo vertical"),
+    ("centralita-ia", "TypeScript", False, "AI voice agent for phone orders",
+     "Pedidos por teléfono con agente de voz"),
+    ("claude-monitoring-rainmeter", "JavaScript", True, "Claude Code sessions on my desktop",
+     "Sesiones de Claude Code en el escritorio"),
+    ("ministudio", "PHP", False, "Instagram posts about current news",
+     "Posts de Instagram sobre la actualidad"),
 ]
 
 
@@ -85,53 +84,44 @@ def svg_doc(width, height, label, body, style=""):
 
 
 def stack_svg(lang, colors, paths):
-    width, left, chip_h, gap = 880, 168, 30, 8
-    rows, y = [], 56
+    width, left, chip_h, gap, size = 880, 128, 24, 6, 11
+    rows, y = [], 12
     for index, (en, es, chips) in enumerate(STACK):
         label = (en if lang == "en" else es) + "/"
-        parts = [f'<text x="24" y="{y + 20}" fill="{GREEN}" font-size="13" font-family="{FONT}">{escape(label)}</text>']
+        parts = [f'<text x="16" y="{y + 16}" fill="{GREEN}" font-size="{size}" font-family="{FONT}">{escape(label)}</text>']
         x = left
         for name, slug in chips:
-            w = (34 if slug else 14) + text_width(name, 13) + 12
-            if x + w > width - 24:
-                x, y = left, y + chip_h + gap
-            parts.append(f'<rect x="{x}" y="{y}" width="{w:.0f}" height="{chip_h}" rx="6" fill="{CHIP}" stroke="{BORDER}"/>')
+            pad = 26 if slug else 10
+            w = pad + text_width(name, size) + 9
+            parts.append(f'<rect x="{x:.0f}" y="{y}" width="{w:.0f}" height="{chip_h}" rx="5" fill="{CHIP}" stroke="{BORDER}"/>')
             if slug:
-                parts.append(f'<svg x="{x + 10}" y="{y + 7}" width="16" height="16" viewBox="0 0 24 24">'
+                parts.append(f'<svg x="{x + 8:.0f}" y="{y + 6}" width="12" height="12" viewBox="0 0 24 24">'
                              f'<path fill="{readable(colors[slug])}" d="{paths[slug]}"/></svg>')
-            tx = x + (34 if slug else 14)
-            parts.append(f'<text x="{tx}" y="{y + 20}" fill="{TEXT}" font-size="13" font-family="{FONT}">{escape(name)}</text>')
+            parts.append(f'<text x="{x + pad:.0f}" y="{y + 16}" fill="{TEXT}" font-size="{size}" font-family="{FONT}">{escape(name)}</text>')
             x += w + gap
-        rows.append(f'<g class="row" style="animation-delay:{0.15 + index * 0.12:.2f}s">{"".join(parts)}</g>')
-        y += chip_h + 16
-    height = y + 8
-    title = "$ ls ~/stack"
-    body = (f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10" fill="{BG}" stroke="{BORDER}"/>'
-            f'<path d="M0.5 38.5H{width - 0.5}" stroke="{BORDER}"/>'
-            + "".join(f'<circle cx="{22 + i * 18}" cy="19" r="5" fill="{c}"/>'
-                      for i, c in enumerate(["#3b5a4d", "#3b5a4d", "#3b5a4d"]))
-            + f'<text x="84" y="24" fill="{MUTED}" font-size="12" font-family="{FONT}">{title}</text>'
-            f'<rect class="caret" x="{84 + text_width(title, 12) + 4:.0f}" y="13" width="7" height="14" fill="{GREEN}"/>'
-            + "".join(rows))
-    style = ("@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}"
-             ".row{opacity:0;animation:in .5s ease-out forwards}"
-             "@keyframes blink{50%{opacity:0}}.caret{animation:blink 1.1s steps(1) infinite}"
-             "@media (prefers-reduced-motion:reduce){.row{opacity:1;animation:none}.caret{animation:none}}")
+        assert x < width, f"{en} row is too wide"
+        rows.append(f'<g class="row" style="animation-delay:{0.1 + index * 0.1:.2f}s">{"".join(parts)}</g>')
+        y += chip_h + gap
+    height = y + 6
+    body = f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="8" fill="{BG}" stroke="{BORDER}"/>' + "".join(rows)
+    style = ("@keyframes in{from{opacity:0}to{opacity:1}}.row{opacity:0;animation:in .5s ease-out forwards}"
+             "@media (prefers-reduced-motion:reduce){.row{opacity:1;animation:none}}")
     label = "Stack: " + ", ".join(n for _, _, chips in STACK for n, _ in chips)
     return svg_doc(width, height, label, body, style)
 
 
-def card_svg(repo, language, lines):
-    width, height = 440, 124
-    arrow = f'<path d="M404 34 L418 20 M407 20 H418 V31" stroke="{GREEN}" stroke-width="2" fill="none" stroke-linecap="round"/>'
-    body = (f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10" fill="{BG}" stroke="{BORDER}"/>'
-            f'<circle cx="26" cy="27" r="5" fill="{LANG_COLORS[language]}"/>'
-            f'<text x="38" y="31" fill="{MUTED}" font-size="12" font-family="{FONT}">{language}</text>'
-            + arrow +
-            f'<text x="20" y="64" fill="{TEXT}" font-size="18" font-weight="700" font-family="{FONT}">{escape(repo)}</text>'
-            + "".join(f'<text x="20" y="{90 + i * 18}" fill="{MUTED}" font-size="12" font-family="{FONT}">{escape(l)}</text>'
-                      for i, l in enumerate(lines)))
-    return svg_doc(width, height, f"{repo}: {' '.join(lines)}", body)
+def card_svg(repo, language, public, line):
+    width, height = 290, 56
+    corner = (f'<path d="M270 20 L279 11 M272 11 H279 V18" stroke="{GREEN}" stroke-width="1.6" fill="none" stroke-linecap="round"/>'
+              if public else
+              f'<text x="278" y="19" text-anchor="end" fill="{MUTED}" font-size="9" font-family="{FONT}">private</text>')
+    body = (f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="8" fill="{BG}" stroke="{BORDER}"/>'
+            f'<circle cx="16" cy="19" r="4" fill="{LANG_COLORS[language]}"/>'
+            f'<text x="26" y="23" fill="{TEXT}" font-size="12" font-weight="700" font-family="{FONT}">{escape(repo)}</text>'
+            + corner +
+            f'<text x="12" y="43" fill="{MUTED}" font-size="10.5" font-family="{FONT}">{escape(line)}</text>')
+    assert 26 + text_width(repo, 12) < 262 and 12 + text_width(line, 10.5) < width - 8, repo
+    return svg_doc(width, height, f"{repo} ({language}): {line}", body)
 
 
 def main():
@@ -140,9 +130,11 @@ def main():
     paths = {s: re.search(r' d="([^"]+)"', fetch(f"{ICONS}/icons/{s}.svg")).group(1) for s in slugs}
     for lang, suffix in (("en", ""), ("es", ".es")):
         (OUT / f"stack{suffix}.svg").write_text(stack_svg(lang, colors, paths), encoding="utf-8", newline="")
-    for repo, language, en, es in PROJECTS:
-        (OUT / f"p-{repo}.svg").write_text(card_svg(repo, language, en), encoding="utf-8", newline="")
-        (OUT / f"p-{repo}.es.svg").write_text(card_svg(repo, language, es), encoding="utf-8", newline="")
+    for old in OUT.glob("p-*.svg"):
+        old.unlink()
+    for repo, language, public, en, es in PROJECTS:
+        (OUT / f"p-{repo}.svg").write_text(card_svg(repo, language, public, en), encoding="utf-8", newline="")
+        (OUT / f"p-{repo}.es.svg").write_text(card_svg(repo, language, public, es), encoding="utf-8", newline="")
     print("stack + %d project cards" % len(PROJECTS))
 
 

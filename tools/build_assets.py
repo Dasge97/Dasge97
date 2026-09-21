@@ -35,6 +35,12 @@ def tune_teletype(svg):
     return re.sub(r'viewBox="[^"]+"', f'viewBox="{left:.0f} 58 {right - left:.0f} 112"', svg, count=1)
 
 
+def tune_matrix(svg):
+    """Crop to the band the letters scroll through, so the text fills the width."""
+    width = float(re.search(r'viewBox="0 0 ([0-9.]+) [0-9.]+"', svg).group(1))
+    return re.sub(r'viewBox="[^"]+"', f'viewBox="100 50 {width - 200:.0f} 130"', svg, count=1)
+
+
 def main():
     for src in sorted(SRC.glob("*.svg")):
         with tempfile.TemporaryDirectory() as tmp:
@@ -43,6 +49,8 @@ def main():
             svg = fixed.read_text(encoding="utf-8")
         if "tt-caret" in svg:
             svg = tune_teletype(svg)
+        elif "mx-scroll" in svg:
+            svg = tune_matrix(svg)
         (OUT / src.name).write_text(svg, encoding="utf-8", newline="")
         print(f"{src.name}: {len(svg.encode()) // 1024} KB")
 
