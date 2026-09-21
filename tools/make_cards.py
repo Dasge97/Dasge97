@@ -124,7 +124,20 @@ def card_svg(repo, language, public, line):
     return svg_doc(width, height, f"{repo} ({language}): {line}", body)
 
 
+def lang_button(label, active):
+    width, height = 120, 34
+    fill, stroke, color = (GREEN, GREEN, BG) if active else (BG, BORDER, TEXT)
+    body = (f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="17" fill="{fill}" stroke="{stroke}"/>'
+            f'<text x="{width / 2}" y="22" text-anchor="middle" fill="{color}" font-size="13" font-weight="700" '
+            f'font-family="{FONT}">{escape(label)}</text>')
+    return svg_doc(width, height, label, body)
+
+
 def main():
+    for code, label in (("en", "English"), ("es", "Español")):
+        for active in (True, False):
+            name = f"lang-{code}{'-active' if active else ''}.svg"
+            (OUT / name).write_text(lang_button(label, active), encoding="utf-8", newline="")
     colors = icon_colors()
     slugs = {s for _, _, chips in STACK for _, s in chips if s}
     paths = {s: re.search(r' d="([^"]+)"', fetch(f"{ICONS}/icons/{s}.svg")).group(1) for s in slugs}
